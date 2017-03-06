@@ -1,0 +1,8 @@
+language: csharp
+solution: VersionNumber.sln
+install:
+  - nuget restore VersionNumber.sln
+  - nuget install NUnit.Console -Version 3.5.0 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release VersionNumber.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.5.0/tools/nunit3-console.exe ./VersionNumber.Tests/bin/Release/VersionNumber.Tests.dll

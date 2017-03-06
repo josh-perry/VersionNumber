@@ -108,7 +108,7 @@ namespace VersionNumber
             {
                 // Read all the text and attempt to parse it
                 var content = File.ReadAllText(_versionFile);
-                ver.Parse(content);
+                ver.Parse(content.Trim());
             }
             catch (NotEnoughVersionPartsException ex)
             {
